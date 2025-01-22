@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model User {
+  id        String   @unique @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  email   String
+  clerkId String
+
+  entry JournalEntry[]
+  analyses Analyse[]
+}
+
+model JournalEntry {
+  id        String   @unique @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  content String
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id])
+
+  analyse Analyse[]
+}
+
+model Analyse {
+  id        String   @unique @default(uuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  subject  String
+  mood     String
+  negative Boolean @default(false)
+  summary  String
+  color    String
+  sentimateScore Float @default(0)
+
+  entryId String
+  entry   JournalEntry @relation(fields: [entryId], references: [id], onDelete: Cascade)
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([id, entryId])
+}
