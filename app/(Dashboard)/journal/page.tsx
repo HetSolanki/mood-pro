@@ -11,6 +11,9 @@ const getData = async () => {
     where: {
       userId: user?.id,
     },
+    include: {
+      analyse: true,
+    },
   });
 
   return entries;
@@ -22,7 +25,7 @@ const JournalPage = async () => {
     <div className="p-6">
       <div>
         <h2 className="text-5xl font-medium mb-4">Journal</h2>
-        <Question entries={entries}/>
+        <Question entries={entries} />
         <div className="my-6 grid grid-cols-3 gap-2">
           <NewEntryCard />
           {entries.map((entry) => (

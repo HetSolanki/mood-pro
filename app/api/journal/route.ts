@@ -26,5 +26,5 @@ export const POST = async (request: Request) => {
 
   revalidatePath("/journal");
 
-  return NextResponse.json({ data: entry });
+  return NextResponse.json({ data: entry});
 };

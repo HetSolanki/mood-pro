@@ -54,18 +54,21 @@ const Textarea = ({ entry }) => {
         </h2>
         <div className="p-4">
           <table className="w-full">
-            {analysis.map((item) => (
-              <tr key={item.name} className="">
-                <div className="flex justify-between items-start py-2">
+            <tbody>
+              {analysis.map((item) => (
+                <tr
+                  key={item.name}
+                  className="flex justify-between items-start py-2"
+                >
                   <td className="w-[25%]">
                     <span className="text-lg font-semibold">{item.name}</span>
                   </td>
                   <td className="text-justify w-[74%]">
                     <span className="">{item.value}</span>
                   </td>
-                </div>
-              </tr>
-            ))}
+                </tr>
+              ))}
+            </tbody>
           </table>
         </div>
       </aside>

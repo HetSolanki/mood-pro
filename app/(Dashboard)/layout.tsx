@@ -17,7 +17,7 @@ const DashboardLayout = ({ children }) => {
         </div>
         <ul className="mt-2">
           {navLinks.map((link) => (
-            <li key={link.name} className="px-2 py-3 font-semibold">
+            <li key={link.name} className="px-4 py-3 font-semibold text-xl">
               <Link href={link.href}>{link.name}</Link>
             </li>
           ))}
