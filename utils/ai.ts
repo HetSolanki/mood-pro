@@ -56,7 +56,7 @@ const getPrompt = async (content) => {
 export const analyse = async (content) => {
   const model = new ChatGoogleGenerativeAI({
     model: "gemini-1.5-flash",
-    apiKey: process.env.GOOGLE_API_KEY,
+    apiKey: "AIzaSyD_N5BOR8uGvBtKg_knN8tZVjAVUffUTK0",
     temperature: 0,
   });
 
