@@ -26,12 +26,11 @@ const JournalPage = async () => {
       <div>
         <h2 className="text-5xl font-medium mb-4">Journal</h2>
         <Question entries={entries} />
-        <div className="my-6 grid grid-cols-3 gap-2">
-          <NewEntryCard />
-          {entries.map((entry) => (
-            <EntryCard key={entry.id} entry={entry} />
-          ))}
-        </div>
+      </div>
+      <div className="my-6 grid grid-cols-3 gap-2">
+        {entries.map((entry) => (
+          <EntryCard key={entry.id} entry={entry} />
+        ))}
       </div>
     </div>
   );

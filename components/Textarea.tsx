@@ -38,7 +38,7 @@ const Textarea = ({ entry }) => {
   return (
     <div className="h-[calc(100vh-10vh)] w-full flex">
       <div className="w-[70%]">
-        {isLoading && <Spinner />}
+        {isLoading && <Spinner color="text-black" size="size-6" />}
         <textarea
           value={value}
           onChange={(e) => setValue(e.target.value)}

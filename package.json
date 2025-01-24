@@ -12,6 +12,8 @@
     "@clerk/nextjs": "^6.9.9",
     "@langchain/core": "^0.3.29",
     "@langchain/google-genai": "^0.1.6",
+    "@libsql/client": "^0.8.1",
+    "@prisma/adapter-libsql": "^6.2.1",
     "@prisma/client": "^6.2.1",
     "langchain": "^0.3.11",
     "next": "15.1.4",
