@@ -22,3 +22,15 @@ export const updateEntry = async ({ id, content }) => {
 
   return data;
 };
+
+export const deleteEntry = async (id) => {
+  const entry = await fetch(
+    new Request(`/api/journal/${id}`, {
+      method: "DELETE",
+    })
+  );
+
+  const data = await entry.json();
+
+  return data;
+};

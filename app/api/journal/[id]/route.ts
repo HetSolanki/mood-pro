@@ -1,4 +1,5 @@
 import { analyse } from "@/utils/ai";
+import { getUserByClerkId } from "@/utils/auth";
 import { prisma } from "@/utils/db";
 import { NextResponse } from "next/server";
 
@@ -21,7 +22,6 @@ export const POST = async (request, { params }) => {
 
   const result = await analyse(updated.content);
 
-  console.log(result);
   const analyseResult = await prisma.analyse.update({
     where: {
       id_entryId: {
@@ -35,4 +35,16 @@ export const POST = async (request, { params }) => {
   });
 
   return NextResponse.json({ data: updated, analyseResult });
+};
+
+export const DELETE = async (req, { params }) => {
+  const { id } = await params;
+
+  const deletedEntry = await prisma.journalEntry.delete({
+    where: {
+      id,
+    },
+  });
+
+  return NextResponse.json({ data: deletedEntry });
 };

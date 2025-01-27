@@ -1,6 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { useRouter } from "next/navigation";
+import bin from "@/public/bin.png";
+import { deleteEntry } from "@/utils/api";
 
 const months = [
   "January",
@@ -38,8 +41,10 @@ export const EntryCard = ({ entry }) => {
     router.push(`/journal/${entry.id}`);
   };
 
-  const handleCheck = () => {
-      
+  const handleDelete = async (e) => {
+    e.preventDefault();
+
+    await deleteEntry(entry.id);
   };
 
   const { createdAt, mood, summary, color } = entry.analyse[0];
@@ -57,11 +62,13 @@ export const EntryCard = ({ entry }) => {
         style={{ backgroundColor: `${color}`, color: `${textColor}` }}
       >
         <h1>{formattedDate}</h1>
-        <input
-          type="checkbox"
-          name="delete"
-          id="delete"
-          onChange={() => handleCheck()}
+        <Image
+          src={bin}
+          alt="Delete"
+          height={20}
+          width={20}
+          className={`${textColor == "white" ? "invert" : "invert-0"}`}
+          onClick={handleDelete}
         />
       </div>
       <div onClick={handleClick}>
