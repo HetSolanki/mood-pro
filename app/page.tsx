@@ -10,17 +10,17 @@ export default async function Home() {
 
   console.log(result);
   return (
-    <div className="h-screen w-screen flex justify-center items-center bg-black">
-      <div className="text-white w-[50%]">
-        <h1 className="text-5xl font-semibold mb-4">
+    <div className="h-screen sm:w-screen flex justify-center items-center bg-black">
+      <div className="text-white w-full p-5 sm:py-0 sm:w-[50%]">
+        <h1 className="text-3xl sm:text-5xl font-semibold mb-4">
           Write, Reflect, and Discover
         </h1>
-        <p className="text-2xl text-slate-200/80 mb-4">
+        <p className="text-xl sm:text-2xl text-slate-200/80 mb-4">
           Let your journaling habits reveal the emotions that shape your days
           and the insights that guide your journey.
         </p>
         <Link href={href}>
-          <button className="bg-blue-500 px-6 py-2 text-white font-semibold text-xl rounded-lg">
+          <button className="bg-blue-500 px-4 sm:px-6 py-2 text-white font-semibold text-lg sm:text-xl rounded-lg">
             Get Started
           </button>
         </Link>

@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react";
 export const metadata: Metadata = {
   title: "Mood-Pro",
   description: "Test your mood and stay happy",
+  manifest: "../manifest.json",
 };
 
 export default function RootLayout({

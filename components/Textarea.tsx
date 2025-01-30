@@ -36,23 +36,23 @@ const Textarea = ({ entry }) => {
     },
   });
   return (
-    <div className="h-[calc(100vh-10vh)] w-full flex">
-      <div className="w-[70%]">
-        {isLoading && <Spinner color="text-black" size="size-6" />}
+    <div className="h-full sm:h-[calc(100vh-10vh)] w-full flex flex-col-reverse sm:flex-row">
+      <div className="w-full sm:w-[70%] border border-t-black border-dashed sm:border-0">
         <textarea
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          className="h-full w-full text-xl p-6 outline-none"
+          className="h-screen w-full text-lg sm:text-xl p-4 sm:p-6 outline-none"
         />
       </div>
-      <aside className="w-[30%] border-l border-black/10">
+      <aside className="w-full sm:w-[30%] border-l border-black/10">
         <h2
-          className={`text-3xl font-semibold py-8 px-4`}
+          className={`text-3xl font-semibold py-8 px-4 flex justify-between items-center`}
           style={{ backgroundColor: `${color}` }}
         >
           Analysis
+          {isLoading && <Spinner color="text-black" size="size-6" />}
         </h2>
-        <div className="p-4">
+        <div className="p-2 sm:p-4">
           <table className="w-full">
             <tbody>
               {analysis.map((item) => (
@@ -63,7 +63,7 @@ const Textarea = ({ entry }) => {
                   <td className="w-[25%]">
                     <span className="text-lg font-semibold">{item.name}</span>
                   </td>
-                  <td className="text-justify w-[74%]">
+                  <td className="text-justify w-[72%] sm:w-[74%]">
                     <span className="">{item.value}</span>
                   </td>
                 </tr>

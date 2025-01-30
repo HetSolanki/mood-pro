@@ -4,6 +4,8 @@ import { createNewEntry } from "@/utils/api";
 import { useRouter } from "next/navigation";
 import Spinner from "./Spinner";
 import { useState } from "react";
+import plusImage from "@/public/plus.svg";
+import Image from "next/image";
 
 const NewEntryCard = () => {
   const router = useRouter();
@@ -26,7 +28,14 @@ const NewEntryCard = () => {
       onClick={handleNewEntry}
     >
       {isloading && <Spinner color="text-black-400" size="size-4" />}
-      New Entry
+      <span className="hidden sm:block">New Entry</span>
+      <Image
+        src={plusImage}
+        alt="New Entry"
+        className={`sm:hidden ${isloading ? "hidden" : "block"}`}
+        width={35}
+        height={35}
+      />
     </button>
   );
 };

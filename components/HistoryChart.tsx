@@ -15,7 +15,7 @@ const CustomToolTip = ({ payload, label, active }) => {
   if (active) {
     const analysis = payload[0].payload;
     return (
-      <div className="p-8 custom-tooltip bg-white/5 shadow-md border border-black/10 rounded-lg backdrop-blur-md relative">
+      <div className="p-5 sm:p-8 custom-tooltip bg-white/5 shadow-md border border-black/10 rounded-lg backdrop-blur-md relative">
         <div
           className="absolute left-2 top-2 w-2 h-2 rounded-full"
           style={{ background: analysis.color }}
@@ -29,9 +29,8 @@ const CustomToolTip = ({ payload, label, active }) => {
 };
 
 const HistoryChart = ({ data }) => {
-  console.log(data);
   return (
-    <ResponsiveContainer width={"100%"} height={"100%"}>
+    <ResponsiveContainer width={"100%"} height={"100%"} className="w-full">
       <LineChart width={300} height={100} data={data}>
         <Line
           dataKey="sentimateScore"

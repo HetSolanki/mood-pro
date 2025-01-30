@@ -24,9 +24,9 @@ const getData = async () => {
 
 const History = async () => {
   const { avg, analyses } = await getData();
-  
+
   return (
-    <div className="w-full h-full">
+    <div className="sm:w-full h-full p-2">
       <div>{`Avg. Sentiment ${avg}`}</div>
       <div className="w-full h-full">
         <HistoryChart data={analyses} />
