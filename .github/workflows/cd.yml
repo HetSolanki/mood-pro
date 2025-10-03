@@ -47,12 +47,12 @@ jobs:
             docker rm mood-pro || true
             docker run -d -p 80:3000 \
             --name mood-pro \
-            -e TURSO_AUTH_TOKEN="${{ secrets.TURSO_AUTH_TOKEN }}" \
-            -e TURSO_DATABASE_URL="${{ secrets.TURSO_DATABASE_URL }}" \
-            -e NEXT_PUBLIC_GEMINI_API_KEY="${{ secrets.NEXT_PUBLIC_GEMINI_API_KEY }}" \
-            -e NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY="${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }}" \
-            -e NEXT_PUBLIC_CLERK_SIGN_IN_URL="${{ secrets.NEXT_PUBLIC_CLERK_SIGN_IN_URL }}" \
-            -e NEXT_PUBLIC_CLERK_SIGN_UP_URL="${{ secrets.NEXT_PUBLIC_CLERK_SIGN_UP_URL }}" \
-            -e NEXT_PUBLIC_CLERK_SIGN_IN_FORCE_REDIRECT_URL="${{ secrets.NEXT_PUBLIC_CLERK_SIGN_IN_FORCE_REDIRECT_URL }}" \
-            -e NEXT_PUBLIC_CLERK_SIGN_UP_FORCE_REDIRECT_URL="${{ secrets.NEXT_PUBLIC_CLERK_SIGN_UP_FORCE_REDIRECT_URL }}" \
+            -e TURSO_AUTH_TOKEN=${{ secrets.TURSO_AUTH_TOKEN }} \
+            -e TURSO_DATABASE_URL=${{ secrets.TURSO_DATABASE_URL }} \
+            -e NEXT_PUBLIC_GEMINI_API_KEY=${{ secrets.NEXT_PUBLIC_GEMINI_API_KEY }} \
+            -e NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=${{ secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY }} \
+            -e NEXT_PUBLIC_CLERK_SIGN_IN_URL=${{ secrets.NEXT_PUBLIC_CLERK_SIGN_IN_URL }} \
+            -e NEXT_PUBLIC_CLERK_SIGN_UP_URL=${{ secrets.NEXT_PUBLIC_CLERK_SIGN_UP_URL }} \
+            -e NEXT_PUBLIC_CLERK_SIGN_IN_FORCE_REDIRECT_URL=${{ secrets.NEXT_PUBLIC_CLERK_SIGN_IN_FORCE_REDIRECT_URL }} \
+            -e NEXT_PUBLIC_CLERK_SIGN_UP_FORCE_REDIRECT_URL=${{ secrets.NEXT_PUBLIC_CLERK_SIGN_UP_FORCE_REDIRECT_URL }} \
             ${{ secrets.DOCKER_USERNAME }}/mood-pro:latest
