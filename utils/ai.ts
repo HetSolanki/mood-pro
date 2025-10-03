@@ -55,8 +55,8 @@ const getPrompt = async (content) => {
 
 export const analyse = async (content) => {
   const model = new ChatGoogleGenerativeAI({
-    model: "gemini-1.5-flash",
-    apiKey: "AIzaSyD_N5BOR8uGvBtKg_knN8tZVjAVUffUTK0",
+    model: "gemini-2.5-flash",
+    apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY,
     temperature: 0,
   });
 
@@ -79,14 +79,14 @@ export const qa = async (question, entries) => {
   });
 
   const model = new ChatGoogleGenerativeAI({
-    model: "gemini-1.5-flash",
-    apiKey: "AIzaSyD_N5BOR8uGvBtKg_knN8tZVjAVUffUTK0",
+    model: "gemini-2.5-flash",
+    apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY,
     temperature: 0,
   });
 
   const chain = loadQARefineChain(model);
   const embeddings = new GoogleGenerativeAIEmbeddings({
-    apiKey: "AIzaSyD_N5BOR8uGvBtKg_knN8tZVjAVUffUTK0",
+    apiKey: process.env.NEXT_PUBLIC_GEMINI_API_KEY,
   });
 
   const store = await MemoryVectorStore.fromDocuments(docs, embeddings);
