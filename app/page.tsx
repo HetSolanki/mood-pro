@@ -13,7 +13,7 @@ export default async function Home() {
     <div className="h-screen sm:w-screen flex justify-center items-center bg-black">
       <div className="text-white w-full p-5 sm:py-0 sm:w-[50%]">
         <h1 className="text-3xl sm:text-5xl font-semibold mb-4">
-          Write, Reflect, and Discover about yourself
+          Write, Reflect, and Discover
         </h1>
         <p className="text-xl sm:text-2xl text-slate-200/80 mb-4">
           Let your journaling habits reveal the emotions that shape your days
