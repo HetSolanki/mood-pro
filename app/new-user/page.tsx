@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 
 const NewUser = async () => {
   const user = await currentUser();
-
+  console.log("User", user?.emailAddresses[0].emailAddress);
   await prisma.user.create({
     data: {
       email: user?.emailAddresses[0].emailAddress as string,
@@ -12,6 +12,7 @@ const NewUser = async () => {
     },
   });
 
+  console.log();
   redirect("/journal");
 };
 
